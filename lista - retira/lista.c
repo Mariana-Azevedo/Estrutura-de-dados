@@ -10,9 +10,7 @@ typedef struct lista Lista;
 
 Lista* no = NULL;
 
-Lista* retira(Lista* l, char* n);
-Lista* retira(Lista* l, char* n);
-
+void retira(char *str);
 void CriarElemento( char *nome[81], float nota);
 
 void CriarElemento( char *nome[81], float nota)
@@ -28,12 +26,174 @@ void CriarElemento( char *nome[81], float nota)
         novo = no;
     }
     else{
-        
+        Lista* aux = no;
+        while( aux->prox != NULL)
+        {
+            aux = aux->prox;
+        }
+        aux->prox = novo;
+    }
+}
+
+void retira( char *str)
+{
+    Lista *last = NULL;
+    Lista *aux = no;
+
+    if ( aux == NULL)
+    {
+        printf("O elemento não pode ser retirado");
+        return NULL;
+    }
+    while( aux != NULL)
+    {
+        if(strcmp(aux->str, str) == 0)
+        {
+            if ( last == NULL)  // ana bia maria breno maria
+            {
+                free(no);
+                no = aux->prox;
+            }
+            else
+            {
+                last->prox = aux->prox;
+            }
+        }
+        else{
+        last = aux;
+        aux = aux->prox;
+        }
+    }
+
+
+    int main()
+    {
+        char str[100], nome[100];
+        int i, quantidade;
+        printf("Se voce deseja adicionar um numero digite 1 se deseja retirar digite 2:\n");
+        scanf("%d", num);
+        if( num == 1)
+        {
+        printf("Informe a quantidade de nome da lista:\n");
+        scanf("%d", quantidade);
+        for( i=0; i<quantidade; i++)
+        {
+            printf("Informe um novo nome para lista:\n");
+            scanf("%s", nome);
+        }
+
+        }
+        if( num == 2)
+        printf("Informe qual nome voce deseja retirar:\n");
+        scanf("%s", str);
+
     }
 }
 
 
-Lista* retira(Lista* l, char* n)
-{
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void retira(char *str)
+{
+    Lista *last = NULL;
+    Lista *aux = no;
+
+    while( aux != NULL)
+    {
+        if(strcmp(aux->str, str == 0))
+        {
+            if( last == NULL)
+            {
+                no = aux->prox;
+                free(aux);
+                aux = no; 
+            }
+            else{
+                last->prox = aux->prox;
+                free(aux);
+                aux = last->prox;
+            }
+        }
+        else
+        {
+            last = aux;
+            aux = aux->prox;
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void retira(char *str)
+{
+    Lista *last = NULL;
+    Lista *aux = no;
+
+    while (aux != NULL)
+    {
+        if (strcmp(aux->str, str) == 0)
+        {
+            if (last == NULL) // to verificando se o elemento aux encontrado igual a string que eu quero remover é o primeiro elemento do nó
+            {
+                no = aux->prox;
+                free(aux);
+                aux = no;
+            }
+            else
+            {
+                last->prox = aux->prox;
+                free(aux);
+                aux = last->prox;
+            }
+        }
+        else
+        {
+            last = aux;
+            aux = aux->prox;
+        }
+    }
 }
