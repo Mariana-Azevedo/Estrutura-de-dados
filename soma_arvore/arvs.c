@@ -12,7 +12,7 @@ typedef struct arv Arv;
 float soma = 0;
 
 void imprime (Arv* a);
-Arv* abb_cria (void);
+Arv* cria (void);
 void percorre_arvore( Arv* a); 
 Arv* insere (Arv* a, float v);
 
@@ -20,6 +20,7 @@ Arv* cria (void)
 {
      return NULL;
 }
+
 void imprime (Arv* a)
 {
      if (a != NULL) 

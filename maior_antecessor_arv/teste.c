@@ -9,7 +9,7 @@ struct arv {
 };
 typedef struct arv Arv;
 
-int contador = 0;
+int maior = 0;
 
 Arv* cria(void)
 {
@@ -23,9 +23,9 @@ void percorre_arvore(Arv* a, int valor)
         return;
     }
 
-    if (a->info < valor )
+    if (a->info > maior && a->info < valor )
     {
-        contador++;
+       maior = a->info;
     }
 
     percorre_arvore(a->esq, valor);
@@ -68,6 +68,6 @@ int main()
     printf("Digite o valor para ser comparado: ");
     scanf("%d", &valor);
     percorre_arvore(raiz, valor);
-    printf("Numero de nos menores que %d: %d\n", valor, contador);
+    printf("Numero do maior valor anterior ao requisitado: %d\n", maior);
     return 0;
 }
