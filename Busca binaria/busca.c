@@ -73,7 +73,7 @@ int busca_bin(int *vetor, int tamanho, int numero) {
 
         if (vetor[meio] == numero) {
             return meio;
-        } else if (vetor[meio] > numero) {
+        } else if (vetor[meio] > numero) { // 1 2 3 4 5 6
             max = meio;
         } else {
             min = meio + 1;

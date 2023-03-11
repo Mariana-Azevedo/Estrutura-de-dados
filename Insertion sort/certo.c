@@ -25,7 +25,7 @@ int main()
 
 int insetion_sort ( int *vetor, int tam) // vetor
 {
-    int i, j, pivo; // 4 3 1 --- 3 4 1 10 5 6
+    int i, j, pivo; // 4 3 1 --- 3 4 1 10 8 5 6
     for(i=1; i<tam; i++)
     {
         pivo = vetor[i];
