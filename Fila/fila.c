@@ -15,7 +15,7 @@ struct fila {
 };
 typedef struct fila Fila;
 
-Fila* fila_cria(void)
+Fila* fila_cria(void) //cria
 {
     Fila* f = (Fila*) malloc(sizeof(Fila));
     f->ini = NULL;
@@ -23,35 +23,36 @@ Fila* fila_cria(void)
     return f;
 }
 
-void fila_insere(Fila* f, float v)
+void fila_insere(Fila* f, float v) //insere
 {
-    Lista* n = (Lista*) malloc(sizeof(Lista));
-    n->info = v; /* armazena informação */
-    n->prox = NULL; /* novo nó passa a ser o último */
+    Lista* novo = (Lista*) malloc(sizeof(Lista));
+    novo->info = v; /* armazena informação */
+    novo->prox = NULL; /* novo nó passa a ser o último */
     if(f->fim != NULL) {
-        f->fim->prox = n;
+        f->fim->prox = novo;
     } else {
-        f->ini = n;
-        f->fim = n; /* fila aponta para novo elemento */
+        f->ini = novo;
     }
+        f->fim = novo; /* fila aponta para novo elemento */
 }
 
-float fila_retira(Fila* f)
+float fila_retira(Fila* fila)
 {
-    Lista* t;
-    float v;
-    if(fila_vazia(f)) {
+    Lista* temp;
+    float valor;
+    if(fila_vazia(fila)) {
         printf("Fila vazia.\n");
         exit(1);
     }
-    t = f->ini;
-    v = t->info;
-    f->ini = t->prox;
-    if(f->ini == NULL) {
-        f->fim = NULL;
+    temp = fila->ini;
+    valor = temp->info;
+    fila->ini = temp->prox;
+    if(fila->ini == NULL) 
+    {
+        fila->fim = NULL;
     }
-    free(t);
-    return v;
+    free(temp);
+    return valor;
 }
 
 void fila_libera(Fila* f)
@@ -91,8 +92,5 @@ int main()
     fila_libera(f);
     return 0;
 }
-
-
-
 
 

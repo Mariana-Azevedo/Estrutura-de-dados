@@ -2,7 +2,7 @@
 #include<stdlib.h>
 
 struct elemento { 
-    int info; 
+    int info;
     struct elemento *prox;
 }; 
 typedef struct elemento Elemento; 

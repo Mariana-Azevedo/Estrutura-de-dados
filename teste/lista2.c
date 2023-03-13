@@ -90,25 +90,6 @@ void retira( char *str)
     }
 }
 
-void cria_elemento (char* nome[81], float nota)
-{
-    Lista* novo = (Lista*)malloc(sizeof(Lista));
-    if(novo==NULL)
-    {
-        return NULL;
-    }
-    if(no==NULL)
-    {
-        novo=no;
-    }
-    Lista* aux = no;
-    while( aux->prox != NULL)
-    {
-        aux = aux->prox;
-    }
-    aux->prox = novo;
-}
-
 
 
 
